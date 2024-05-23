@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Registration form </h1>
+  <form action="/myaction.php" name="myform" onsubmit="return validateform()" method="post">
+    <div class="formdesign" id="name">
+      Name:<input type="text" name="fname"><span class="formerror"></span>
+    </div><br>
+
+    <div class="formdesign" id="email">
+      Email:<input type="email" name="femail"><span class="formerror"></span>
+    </div><br>
+
+    <div class="formdesign" id="phone">
+      Phone:<input type="Phone" name="fphone"><span class="formerror"></span>
+    </div><br>
+
+    <div class="formdesign" id="pass">
+      Password:<input type="password" name="fpass"><span class="formerror"></span>
+    </div><br>
+
+<input type="submit" class="btn" value="submit">
+  </form>
+
+  <script>
+    function seterror(id,error){
+      element=document.getElementById(id);
+      elemen
+    }
+  </script>
+</body>
+</html>

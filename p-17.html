@@ -1,0 +1,167 @@
+<!-- ----------------curency converter ----------------------  -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body>
+    <form>
+        <input type="number" placeholder="Enter the Amount" id="amount">
+        <select id="amountType">
+           <option value="usd">USD</option>
+           <option value="euro">Euro</option>
+           <option value="inr">INR</option>
+        </select><br><br>
+        <input type="number" placeholder="Convert amount" id="convertAmt" readonly>
+        <select id="convertType">
+            <option value="usd">USD</option>
+            <option value="euro">Euro</option>
+            <option value="inr">INR</option>
+        </select><br><br>
+        <button type="button" onclick="convert()">Convert</button>
+        <br><br>
+
+        <button type="button" onclick="addCurrency()">AddCurrency</button>
+    </form>
+
+    <script>
+          const amount = document.getElementById("amount");
+            const amountType = document.getElementById("amountType");
+            const convertAmt = document.getElementById("convertAmt");
+            const convertType = document.getElementById("convertType");
+        
+            const usdcurrency = {
+                usd: 1,
+                euro: 0.90,
+                inr: 83.25
+            }
+
+            const eurocurrency = {
+                euro: 1,
+                usd: 1.11,
+                inr: 92.04
+            }
+
+            const inrcurrency = {
+                inr: 1,
+                usd: 0.012,
+                euro: 0.011
+            }
+
+    
+           let currencyType,currencyAmount;
+            
+        const convert = () => {
+          
+            const amountvalue = amount.value;
+            const amountTypevalue =amountType.value;
+
+            if (amountTypevalue === 'usd') {
+                convertAmt.value = usdcurrency[convertType.value] * amountvalue;
+            } else if (amountTypevalue === 'euro') {
+                convertAmt.value = eurocurrency[convertType.value] * amountvalue;
+            } else  {
+                convertAmt.value = inrcurrency[convertType.value] * amountvalue;
+            }
+
+           
+           
+        }
+
+        const addCurrency = ()=>{
+            const currencyType = prompt('please enter currency');
+            const currencyAmount =prompt('please enter amount');
+            console.log(currencyType,currencyAmount);
+
+
+
+            
+        }
+        
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currency_Conveter</title>
+</head>
+<body>
+    <input placeholder="Enter Amount" id="amount">
+    <select id="amountType">
+        <!-- <option value="">select</option>
+        <option value="usd">usd</option>
+        <option value="euro">euro</option>
+        <option value="inr">inr</option> -->
+    </select>
+    <input placeholder="Amount" id="showamount" readonly>
+    <select id="convertamountType">
+        <!-- <option value="">select</option>
+        <option value="usd">usd</option>
+        <option value="euro">euro</option>
+        <option value="inr">inr</option> -->
+    </select>
+    <button onclick="conveterBtn()">Conveter</button>
+    <button onclick="AddCurrency()">Add Curency</button>
+    <script>
+        const convertingCurrency = {
+            usd: {
+                usd: 1,
+                euro: 0.90,
+                inr: 83.25,
+            },
+            euro: {
+                euro: 1,
+                usd: 1.11,
+                inr: 92.04,
+            },
+            inr: {
+                inr: 1,
+                usd: 0.012,
+                euro: 0.011,
+            }
+        }
+        const amount = document.getElementById("amount");
+        let amountType = document.getElementById("amountType");
+        let showamount = document.getElementById("showamount");
+        let convertamountType = document.getElementById("convertamountType");
+        const country = ['usd', 'euro', 'inr']
+        const curencySelectOption = (curr) => {
+            const option = document.createElement('option');
+            option.value = curr.toLocaleLowerCase();
+            option.innerText = curr.toUpperCase();
+            const clonenode = option.cloneNode(true)
+            amountType.appendChild(option)
+            convertamountType.appendChild(clonenode)
+        }
+        for (let i = 0; i < country.length; i++) {
+            curencySelectOption(country[i])
+        }
+        const conveterBtn = () => {
+            showamount.value = convertingCurrency[amountType.value][convertamountType.value] * amount.value;
+        }
+        const AddCurrency = () => {
+            const newCurr = prompt("Add Currency name")
+            const newcurrency = prompt(`enter exchenge rate for usd to :${newCurr.toUpperCase()}`);
+            country.push(newCurr);
+            curencySelectOption(newCurr);
+            convertingCurrency.usd[newCurr.toLowerCase()] = +newcurrency;
+            convertingCurrency.euro[newCurr.toLowerCase()] = +(+newcurrency * convertingCurrency.euro.usd).toFixed(4);
+            convertingCurrency.inr[newCurr.toLowerCase()] = +(+newcurrency * convertingCurrency.inr.usd).toFixed(4);
+        }
+    </script>
+</body>
+</html>
+
+

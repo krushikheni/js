@@ -1,0 +1,69 @@
+
+<!-- ------------------------ handwriting converter ------------------------- -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:ital,wght@0,400;1,500;1,700&display=swap');
+        
+        .first {
+            font-family: 'Dancing Script', cursive;
+            color : green;
+        }
+        .second {
+            font-family: 'Teko', sans-serif;
+        }
+        .third {
+            font-family: 'Grandiflora One', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="text"></div>
+    <button type="button" onclick="handlefirst()" >first</button>
+    <button type="button" onclick="handlesecond()">second</button>
+    <button type="button" onclick="handlethird()" >third</button>
+
+    <script>
+        const string ="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit quam eius perspiciatis tenetur similique voluptates. Nemo consectetur odio consequatur. Consectetur reprehenderit sunt pariatur nulla aliquam fuga ipsam. Amet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit quam eius perspiciatis tenetur similique voluptates. Nemo consectetur odio consequatur. Consectetur reprehenderit sunt pariatur nulla aliquam fuga ipsam. Amet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit quam eius perspiciatis tenetur similique voluptates. Nemo consectetur odio consequatur. Consectetur reprehenderit sunt pariatur nulla aliquam fuga ipsam. Amet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit quam eius perspiciatis tenetur similique voluptates. Nemo consectetur odio consequatur. Consectetur reprehenderit sunt pariatur nulla aliquam fuga ipsam. Amet.Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusantium sit quam eius perspiciatis tenetur similique voluptates. Nemo consectetur odio consequatur. Consectetur reprehenderit sunt pariatur nulla aliquam fuga ipsam. Amet.";
+    
+        console.log(string);
+
+        const text = document.getElementById('text');
+        text.innerText = string;
+
+        const handlefirst = () => {
+            text.classList.forEach((e)=>{
+             e !== "first" &&  text.classList.remove(e);
+            })
+            text.classList.add('first');
+        }
+        
+
+        const handlesecond = () => {
+            text.classList.add('second');
+            text.classList.forEach((e)=>{
+                e !== "second" &&  text.classList.remove(e);
+            })
+            text.classList.add('first');
+        }
+    
+
+        const handlethird = () => {
+            text.classList.add('third');
+              text.classList.forEach((e)=>{
+                e !== "third" &&  text.classList.remove(e);
+            })
+            text.classList.add('first');
+        }
+    
+    </script>
+</body>
+</html>
+
+        

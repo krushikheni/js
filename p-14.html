@@ -1,0 +1,72 @@
+<!-- ---------------------- hide/show effect -------------------  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #main_popup{
+         position: relative;
+            
+            display: none;
+        }
+       #child_popup {
+        height: 200px;
+        width : 300px;
+        border: 1px solid black;
+        margin: 50px;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-98%, 100%);
+        
+       }
+     
+       #child_popup  h5{
+        padding: 30px;
+       }
+
+       #child_popup  #btn{
+        justify-content: center;
+        display: flex;
+       }
+    
+    </style>
+</head>
+<body>
+    <button type = "button" onclick="openpopup(true)" id="open">open</button>
+
+    <div id = "main_popup">
+        <div id ="child_popup">
+            <h5>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis magni tempora vitae suscipit rerum, hic aspernatur animi quos nemo voluptatem atque culpa assumenda nam voluptatibus accusamus ipsum doloremque. Est, adipisci."</h5>
+            <div id="btn">
+            <button type = "button" onclick="openpopup(false)" id="close">close</button>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+
+        
+        const openpopup = (value) => {
+            if(value){
+                document.getElementById("main_popup").style.display = "block";
+            }else{
+                document.getElementById("main_popup").style.display = "none";
+            }
+
+        }
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $.ajax({
+                    method:"GET",
+                    url:"switch.html",
+                    dataType:"html",
+                    success:function(res){
+                        $("#frm").html(res);
+                    }
+                })
+            })
+        })
+    </script>
+
+    <input type="button" class="btn btn-success" id="btn" value="load form">
+
+    <div id="frm">
+
+    </div>
+</body>
+</html>

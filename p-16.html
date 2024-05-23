@@ -1,0 +1,42 @@
+<!-- ------------------------ music kit ------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button type="button" onclick = first() class="kit">First</button>
+    <button type="button" onclick = second() class="kit" >Second</button>
+    <button type="button" onclick = third() class="kit">Third</button>
+    <button type="button" onclick = fourth() class="kit">Fourth</button>
+    <button type="button" onclick = fifth() class="kit">Fifth</button>
+</body>
+
+<script>
+    const first = () =>{
+        const play = new Audio('./one.wav');
+        play.play();
+    }
+    const second = () =>{
+        const play= new Audio('./two.wav');
+        play.play();
+    }
+    const third = () =>{
+        const play = new Audio('./three.wav');
+        play.play();
+    }
+    const four = () =>{
+        const play = new Audio('./four.wav');
+        play.play();
+    }
+    const five = () =>{
+        const  play = new Audio('./five.wav');
+        play.play();
+    }
+</script>
+
+</html>

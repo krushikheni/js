@@ -1,0 +1,76 @@
+<!-- -------------------------- increment /decrement ---------------------  -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>counter:<span id = countvalue>0</span></div>
+    <button type = "button" onclick="incrementvalue()">INCREMENT</button>
+    <button type = "button" onclick="decrementvalue()">DECREMENT</button>
+    <br/><br/>
+    <input type="number" id="inputvalue" value ="1">
+</body>
+
+<script>
+    
+ 
+    //   const countvalue = document.getElementById("countvalue");
+    //   const inputValue = document.getElementById("inputvalue");
+
+    //   inputvalue.addEventListener("change", (e) => {
+    //     const val = +e.target.value;
+    //     countvalue.innerText = +countvalue.innerText + val;
+    //   });
+    //   const incrementvalue = () => {
+    //     countvalue.innerText = +countvalue.innerText + +inputvalue.value;
+    //   };
+    //   const decrementvalue = () => {
+    //     countvalue.innerText = +countvalue.innerText - +inputvalue.value;
+    //   };
+
+
+
+    // const countvalue = document.getElementById("countvalue");
+
+    // const incrementvalue = () => {
+    //     countvalue.innerText = +countvalue.innerText + 1;
+    // }
+    // console.log(incrementvalue);
+
+
+    // const decrementvalue = () => {
+    //     countvalue.innerText = +countvalue.innerText - 1;
+    // }
+    // console.log(decrementvalue);
+
+
+    const inputvaue = document.getElementById('inputvaue');
+    const countvalue = document.getElementById('countvalue');
+
+
+    
+    inputvalue .addEventListener = ("change",(e) => {
+        const val = +e.target.value;
+        countvalue.innerText = +countvalue.innerText + val;
+    })
+    const incrementvalue = () => {
+        countvalue.innerText = +countvalue.innerText + +inputvalue.value;
+    }
+    console.log(incrementvalue);
+
+    const decrementvalue = () => {
+        countvalue.innerText = +countvalue.innerText - +inputvalue.value;
+    }
+    console.log(decrementvalue);
+
+
+
+</script>
+</html>
+
+
+

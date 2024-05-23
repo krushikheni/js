@@ -1,0 +1,186 @@
+
+<!-- ---------------------------- random password ------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const length = 10;
+        const uppercase = false;
+        const lowercase =false;
+        const numbers = false;
+        const symbols = false;
+        const confusing = false;
+        const ambiguous = true;
+
+       
+        
+        const number = [0,1,2,3,4,5,6,7,8,9,10]
+
+        const alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+        
+        const symbol  = ['!', '#', '$', '%', '&', '*', '+', '-', '=', '?', '@', '^', '_', '{', '}', '[', ']', '(', ')', '/', "'", '"', '`', '~', ',', ';', ':', '.', '<', '>', '\\'];
+
+        const confuse = ['i', 'l', 'L', '1', 'o', '0', 'O'];
+
+        const ambigu = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{   
+    //     let password = "";
+    //     let passwordArray = [];     
+    //     for(let i = 0; i < length; i++){                    
+    //         const randomtext =  Math.floor(Math.random() * alphabet.length);
+    //             const upper = alphabet[randomtext].toUpperCase();               
+    //             password += upper;     
+    //         } 
+    //         console.log(password);          
+    //     }
+    //  generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){
+            
+    //         const randomtext =  Math.floor(Math.random() * alphabet.length);
+    //         const lower = alphabet[randomtext].toLowerCase();
+    //         password += lower;             
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+    
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){            
+    //         const randomtext =  Math.floor(Math.random() * number.length);
+    //         const num = number[randomtext]
+    //         password += num;            
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){            
+    //         const randomtext =  Math.floor(Math.random() * symbol.length);
+    //         const sym = symbol[randomtext]
+    //         password += sym            
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){            
+    //         const randomtext =  Math.floor(Math.random() * confuse.length);
+    //         const conf = confuse[randomtext]
+    //         password +=  conf            
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //   let password = "";
+    //     for(let i = 0; i < length; i++){
+    //         const randomtext =  Math.floor(Math.random() * alphabet.length);
+    //          if(confuse.includes(alphabet[randomtext])){
+    //             const newrandom =  Math.floor(Math.random() * alphabet.length);
+    //             const randomword = alphabet[newrandom];
+    //             password += randomword;
+    //          } 
+    //          else{
+    //             const randomword = alphabet[randomtext];
+    //             password += randomword;
+    //          }                        
+    //     } 
+    //     console.log(password)
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){            
+    //         const randomtext =  Math.floor(Math.random() * ambigu.length);
+    //         const amb = ambigu[randomtext]
+    //         password += amb            
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+
+
+
+    // const generatePassword = (length, uppercase, lowercase, numbers, symbols, confusing, ambiguous) =>{ 
+    //     let password = "";
+    //     for(let i = 0; i < length; i++){            
+    //         const randomtext =  Math.floor(Math.random() * alphabet.length);
+    //         if(ambigu.includes(alphabet[randomtext])){
+    //             const newrandom =Math.floor(Math.random() * alphabet.length);
+    //             const randomword = alphabet[newrandom];
+    //             password += randomword;
+    //         }   
+    //         else{
+    //             const randomword = alphabet[randomtext];
+    //             password += randomword;
+    //         }       
+    //     } 
+    //     console.log(password);
+    // }
+    // generatePassword(length, uppercase, lowercase, numbers, symbols, confusing, ambiguous);
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+ 

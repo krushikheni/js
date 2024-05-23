@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fatchData</title>
+    <!-- <style src="style.css"></style>
+    <script src="script.js"></script> -->
+    <style>
+      img {
+        width: 100px;
+      }
+      #product {
+        margin: 10px;
+        width: 200px;
+        display: grid;
+        grid-template-columns: auto auto;
+      }
+      .maindiv {
+        width: 600px;
+        display: grid;
+        grid-template-columns: auto auto;
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+      .firstdiv {
+        padding: 10px;
+      }
+      .seconddiv {
+        padding: 10px;
+      }
+      .viewmore {
+        display: block;
+        margin-left: 25px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader"></div>
+    <div id="product"></div>
+    <button onclick="fetchData()">lodeMore</button>
+    <div id="productDetail"></div>
+    <script>
+      const product = document.getElementById("product");
+      const loader = document.getElementById("loader");
+      let inittialval = 0;
+      let lastValue = 5;
+      let total = -1;
+      const fetchData = () => {
+        const url = "https://fakestoreapi.com/products";
+        loader.style.visibility = "visible";
+        const data = fetch(url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => {
+            console.log(res);
+            for (let i = inittialval; i < lastValue; i++) {
+              const { title, price, category, description, image } = res[i];
+              const div = document.createElement("div");
+              const div2 = document.createElement("div");
+              const id = document.createElement("div");
+              const h1 = document.createElement("h3");
+              const cat = document.createElement("h4");
+              const dis = document.createElement("h4");
+              const img = document.createElement("img");
+              const maindiv = document.createElement("div");
+              const firstdiv = document.createElement("div");
+              const seconddiv = document.createElement("div");
+              const viewMore = document.createElement("button");
+              viewMore.innerHTML = "View";
+              viewMore.addEventListener("click", () => {
+                console.log(res[i]);
+                showproductDetails(res[i].id);
+              });
+              maindiv.classList.add("maindiv");
+              firstdiv.classList.add("firstdiv");
+              seconddiv.classList.add("seconddiv");
+              viewMore.classList.add("viewmore");
+              img.src = res[i].image;
+              h1.innerText = `Title : ${res[i].title}`;
+              cat.innerText = `category : ${res[i].category}`;
+              dis.innerText = `description : ${res[i].description}`;
+              firstdiv.appendChild(img);
+              // seconddiv.appendChild(h1);
+              // seconddiv.appendChild(div);
+              // seconddiv.appendChild(cat);
+              // seconddiv.appendChild(dis);
+              // maindiv.appendChild(seconddiv);
+              maindiv.appendChild(firstdiv);
+              product.appendChild(maindiv);
+              firstdiv.appendChild(viewMore);
+            }
+            if (total === inittialval) {
+              return;
+            }
+            // console.log(lastValue);
+            // console.log(total);
+            total = res.length;
+            inittialval += 5;
+            lastValue += 5;
+            loader.style.visibility = "hidden";
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            loader.style.visibility = "hidden";
+          });
+      };
+      // const productDetails = (id) => {
+      //     document.getElementById("productDetails")
+      const showproductDetails = (id) => {
+        console.log(id);
+        const productDetail = document.getElementById("productDetail");
+        const url = `https://fakestoreapi.com/products/${id}`;
+        const data = fetch(url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => {
+            const { title, price, category, description, image } = res;
+            const div = document.createElement("div");
+            const div2 = document.createElement("div");
+            const id = document.createElement("div");
+            const h1 = document.createElement("h3");
+            const cat = document.createElement("h4");
+            const dis = document.createElement("h4");
+            const img = document.createElement("img");
+            const maindiv = document.createElement("div");
+            const firstdiv = document.createElement("div");
+            const seconddiv = document.createElement("div");
+            const viewMore = document.createElement("button");
+            img.src = image;
+            h1.innerText = `Title : ${title}`;
+            cat.innerText = `category : ${category}`;
+            dis.innerText = `description : ${description}`;
+            maindiv.classList.add("maindiv");
+            firstdiv.classList.add("firstdiv");
+            seconddiv.classList.add("seconddiv");
+            viewMore.classList.add("viewmore");
+            firstdiv.appendChild(img);
+            seconddiv.appendChild(h1);
+            seconddiv.appendChild(div);
+            seconddiv.appendChild(cat);
+            seconddiv.appendChild(dis);
+            maindiv.appendChild(firstdiv);
+            maindiv.appendChild(seconddiv);
+            productDetail.innerHTML = "";
+            productDetail.appendChild(maindiv);
+          });
+      };
+      // }
+      fetchData();
+      // productDetails();
+    </script>
+  </body>
+</html>

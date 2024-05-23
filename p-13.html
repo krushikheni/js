@@ -1,0 +1,46 @@
+
+<!-- ---------------------- dise game ---------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        player 1:<span id = palyerone>0</span><br>
+        player 2:<span id = palyertwo>0</span>
+
+      
+    </div>
+
+    <button type="button" onclick="playgame()">Play</button>
+    <br>
+
+    <div id = "result"></div>
+    <script>
+        const playerone = document.getElementById("playerone");
+        const palyertwo = document.getElementById("palyertwo");
+
+        const  playgame = () =>{
+            firstrandom = Math.floor(Math.random() * (6) + 1) ;
+            palyerone.innerText = firstrandom;
+            secondrandom = Math.floor(Math.random() * (6) + 1) ;  
+            palyertwo.innerText = secondrandom;
+            
+            if(firstrandom > secondrandom){
+                result.innerText ="player one win!!"
+            }
+            else if (firstrandom < secondrandom){
+                result.innerText ="player two win!!"
+            }
+            else{
+                result.innerText ="draw!!"
+               
+            }
+        }
+    </script>
+</body>
+</html>

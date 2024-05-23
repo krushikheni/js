@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    
+     $("#btn").click(function(event){
+        $.getJSON('data.json', function(res) {
+           $('#stage').html('<p> name: ' + res.name + '</p>');
+           $('#stage').append('<p>gender : ' + res.gender + '</p>');
+           $('#stage').append('<p> email: ' +res.email + '</p>');
+           $('#stage').append('<p> mobail: ' + res.mobail + '</p>');
+        });
+     });
+        
+  });
+</script>
+
+</head>
+<body>
+
+<p>Click on the button to load data.json file</p>
+       
+<div id = "stage">
+  
+</div>
+ 
+<input type = "button" id = "btn" value = "Load Data" />
+<script>
+
+
+</script>
+  
+</body>
+</html>

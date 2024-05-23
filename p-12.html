@@ -1,0 +1,98 @@
+<!-- --------------------- stop watch --------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>stop watch</h2>
+    <div>Time:
+        <span id ="hours">00</span>H
+        <span id ="miniut">59</span>M
+        <span id ="second">57</span>S
+        <span id ="milisecond">00</span>MS
+
+    </div><br><br>
+    <div>
+        <button type="button" onclick="stratbtn()" id="start" >start</button>
+        <button type="button" onclick="lapbtn()">lap</button>
+        <button type="button" onclick="pausebtn()">pause</button>
+        <button type="button" onclick="resetbtn()">reset</button>
+    </div><br><br>
+
+    <div id="lap"></div>
+
+    <script>
+     const hours = document.getElementById("hours");
+     const miniut = document.getElementById("miniut");
+     const second = document.getElementById("second");
+     const milisecond = document.getElementById("milisecond");
+
+     const start = document.getElementById("start");
+
+     const lap = document.getElementById("lap");
+    let interval = "";
+     const stratbtn = () =>{
+         start.disabled = true;
+         interval = setInterval(() => {
+             const milicounter = +milisecond.innerText + 1;
+             milisecond.innerText = milicounter;
+
+             if(milicounter > 90){
+                milisecond.innerText ="00";
+                const seccounter = +second.innerText + 1;
+                second.innerText = seccounter;
+
+                if(seccounter > 59){
+             second.innerText ="00";
+             const mincounter = +miniut.innerText + 1;
+             miniut.innerText = mincounter;
+
+             if(mincounter > 59){
+                miniut.innerText ="00";
+                const hourcounter = +hours.innerText + 1;
+                hours.innerText = hourcounter;
+             }
+           }
+             }
+           
+         }, 10);
+     }
+    
+     const pausebtn = () =>{
+        start.disabled = false;
+         clearInterval(interval);
+     }
+
+     const  resetbtn = () =>{
+        start.disabled = false;
+        milisecond.innerText = "00";
+        second.innerText = "00";
+        miniut.innerText = "00";
+        hours.innerText = "00";
+       clearInterval(interval);
+     }
+    
+     const lapbtn = () =>{
+        const lapvalue = `${hours.innerText}h ${miniut.innerText}m ${second.innerText}s ${milisecond.innerText}ms`;
+        console.log(lapvalue);
+
+
+        const div = document.createElement("div");
+
+        div.innerText = lapvalue;
+
+        lap.appendChild(div);
+
+        //  lap.innerText =  lap.innerText + lapvalue + "\n";
+     }
+    </script>
+</body>
+</html>
+
+
+
+

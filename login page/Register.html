@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ragistration page</title>
+    <!--<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./Register.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <style>
+      .header{
+    background-image:url(bg1.jpg);
+    width:100%;
+    height:750px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="logo.jpg" alt="Logo" style="width:50px;" class="rounded-pill">
+          </a>
+
+          <div class="right">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Register.js">Register</a>
+                  </li>
+              </ul>
+        </div>
+        </div>
+        
+      </nav>
+      <div class="header">
+
+         <form name="frm" action="#"  method="post" id="frm" onsubmit="return validation()"> 
+              <div class="container">
+            <h1>Ragistration</h1>
+
+            <div class="row">
+              <div class="col-6">
+            <div class="input-control">
+                <label for="fname">First Name:</label>
+                <input type="text" name="fname" id="fname">
+           
+
+                <span id="f" class="text-danger font-weight-bold" ></span>
+            </div>
+
+
+
+            <div class="input-control">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+         
+              <span id="em" class="text-danger font-weight-bold" ></span>  
+            </div>
+          
+
+             <div class="control">
+              <label for="gender">Gender:</label>
+              <div class="row">
+
+                <div class="col-4">
+                  
+                <label for ="m">male</label><span>
+                  <input type="radio" id="m" name="g"></span>
+                </div>
+
+                <div class="col-4">
+                <label for ="f">female</label>
+                <input type="radio" id="f" name="g">
+                </div>
+
+            </div>
+             </div>
+        
+
+            <div class="input-control">
+                <label for="pwd">Password</label>
+                <input type="password" name="pwd" id="pwd">
+        
+               <span id="ps" class="text-danger font-weight-bold" ></span> 
+              </div>
+             </div>
+
+
+              <div class="col-6">
+                <div class="input-control">
+                  <label for="lname">Last Name:</label>
+                  <input type="text" name="lname" id="lname">
+               
+               <span id="l" class="text-danger font-weight-bold" ></span> 
+              </div>
+  
+              <div class="input-control">
+                  <label for="mno">Mobail No:</label>
+                  <input type="number" name="mno" id="mno">
+           
+                  <span id="mo" class="text-danger font-weight-bold" ></span>
+              </div>
+  
+
+              <div class="control">
+                <label for="Hobby">Hobby:</label>
+                <div class="row">
+  
+                  <div class="col-4">
+                    
+                    <label for ="sw">game</label><span>
+                      <input type="checkbox" id="sw" name="h"></span>
+                  
+                  </div>
+  
+                  <div class="col-4">
+                  <label for ="mu">music</label>
+                  <input type="checkbox" id="mu" name="h">
+                  </div>
+
+                  <div class="col-4">
+                    <label for ="da">dance</label>
+                    <input type="checkbox" id="da" name="h">
+                 </div>
+  
+              </div>
+               </div>
+
+
+
+              <div class="input-control">
+                  <label for="pwds"> Confrim Password</label>
+                  <input type="password" name="pwds" id="pwds">
+                 
+                  <span id="pss" class="text-danger font-weight-bold" ></span>
+              </div>
+              </div>
+              </div>
+              <button type="submit">submit</button> 
+
+            
+
+        
+            </div>
+      
+        </form>
+        
+        
+      </div>
+      <div id="t">
+        <table>
+          
+          <tr>
+            <td>First Name</td>
+            <td><span id="fn" class="text-success font-weight-bold" ></span></td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td><span id="ln" class="text-success font-weight-bold" ></span></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><span id="eid" class="text-success font-weight-bold" ></span></td>
+          </tr>
+          <tr>
+            <td>Mobail No</td>
+            <td><span id="mn" class="text-success font-weight-bold" ></span></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><span id="pw" class="text-success font-weight-bold" ></span></td>
+          </tr>
+          <tr>
+            <td> Confrim Password</td>
+            <td><span id="cpw" class="text-success font-weight-bold" ></span></td>
+          </tr>
+        </table>
+      </div>
+      <script>
+      
+        document.getElementById("t").style.display = "none";
+      </script>
+</body>
+</html>

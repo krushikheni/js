@@ -1,0 +1,181 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="PARAGRAPH"> PARAGRAPH:</label>
+    <div>
+        <span id="paraval">1</span>
+        <input type = range  name="para" id="para" value="jf1" min="0" max="10">
+    </div><br/>
+     
+
+    <label for=" sentance"> SENTANCE:</label>
+    <div>
+        <span id="sentval">1</span>
+        <input type = range  name="sen" id="sen" value="1" min="1" max="25">
+    </div><br/>
+     
+
+    <label for=" word"> WORD:</label>
+    <div>
+        <span id="wordval">3</span>
+        <input type = range  name="word" id="word" value="3" min="3" max="25">
+    </div><br/>
+     
+    <div>
+        <textarea id="text" name="text" rows="20" cols="100"></textarea>
+
+        <div>Letter: <span id="letterCount">0</span></div>
+        <div>Word: <span id="wordCount">0</span></div>
+        <div>Sentense: <span id="sentCount">0</span></div>
+    </div>
+    
+
+    <script>
+
+        const para = document.getElementById("para");
+        const sen = document.getElementById("sen");
+        const word = document.getElementById("word");
+        const text = document.getElementById("text");
+
+        para.addEventListener('change',(e)=>{
+            const paraval = document.getElementById("paraval");
+            const sentval = document.getElementById("sentval");
+            const wordval = document.getElementById("wordval");
+            const letterCount = document.getElementById("letterCount");
+            const wordCount = document.getElementById("wordCount");
+            const sentCount = document.getElementById("sentCount");
+            paraval.innerText = +e.target.value;
+            const result = createperagraph(paraval.innerText,sentval.innerText,wordval.innerText);
+            text.value = result;
+
+            letterCount.innerText = result.length
+            wordCount.innerText = result.split(' ').length
+            sentCount.innerText = result.split('. ').length
+        });
+
+        sen.addEventListener("change",(e)=>{
+            const paraval = document.getElementById("paraval");
+            const sentval = document.getElementById("sentval");
+            const wordval = document.getElementById("wordval");
+            const letterCount = document.getElementById("letterCount");
+            const wordCount = document.getElementById("wordCount");
+            const sentCount = document.getElementById("sentCount");
+            sentval.innerText = +e.target.value;
+            const result = createperagraph(paraval.innerText,sentval.innerText,wordval.innerText);
+            text.value = result;
+
+            letterCount.innerText = result.length
+            wordCount.innerText = result.split(' ').length
+            sentCount.innerText = result.split('. ').length
+        })
+
+    word.addEventListener("change",(e)=>{
+        const paraval = document.getElementById("paraval");
+        const sentval = document.getElementById("sentval");
+        const wordval = document.getElementById("wordval");
+        const letterCount = document.getElementById("letterCount");
+            const wordCount = document.getElementById("wordCount");
+            const sentCount = document.getElementById("sentCount");
+            wordval.innerText = +e.target.value;
+            const result = createperagraph(paraval.innerText,sentval.innerText,wordval.innerText);
+            text.value = result;
+
+            letterCount.innerText = result.length
+            wordCount.innerText = result.split(' ').length
+            sentCount.innerText = result.split('. ').length
+        })
+
+
+
+
+
+ const alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+const createWord = (number) => {
+  let wordarray = [];
+  const upDownNumber = Math.floor(Math.random() * (2 - -1) + -1)
+
+  const updatedNumber = number + upDownNumber
+
+  for (let i = 0; i < updatedNumber; i++) {
+
+    let word = "";
+    const matharray = Math.floor(Math.random() * (10 - 3) + 3);
+    for (let j = 0; j < matharray; j++) {
+      const randomarray = Math.floor(Math.random() * alphabet.length);
+      word += alphabet[randomarray];
+    }
+    console.log(wordarray)
+    wordarray.push(word);
+  }
+  return wordarray.join(" ");
+};
+// const result = createWord(word);
+// console.log(result);
+
+
+
+
+const createSentance = (sentvalue , wordvalue) => {
+  let senarray = [];
+  for (let i = 0; i < +sentvalue; i++) {
+    senarray.push(createWord(+wordvalue));
+  }
+  return senarray.join(". ");
+};
+// const result = createSentance(sentance);
+// console.log(result);
+
+const createperagraph = (paravalue,sentvalue,wordvalue) => {
+  let pararray = [];
+  for (let i = 0; i < +paravalue; i++) {
+    pararray.push(createSentance(+sentvalue ,+wordvalue));
+  }
+  if (pararray.length > 1) {
+    return pararray.join(". \n\n") + ".";
+  } else {
+    const ans = pararray.join("") + ".";
+    return ans;
+  }
+};
+
+
+   </script>
+</body>
+</html> 
+
+
+
+

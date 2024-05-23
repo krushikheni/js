@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .maindiv {
+        display: flex;
+        margin: 10px;
+        padding: 10px;
+        justify-content: space-between;
+        border: 1px dotted gray;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter your task..." id="taskTag" />
+
+    <button type="button" onclick="addTask()">Add Task</button>
+    <button type="button" onclick="search()">search</button>
+
+    <div id="container"></div>
+    <hr />
+    <div id="searchId"></div>
+
+    <script>
+      const taskTag = document.getElementById("taskTag");
+      const container = document.getElementById("container");
+      const searchId = document.getElementById("searchId");
+
+      let taskid = 0;
+      let perentId = null;
+      const addTask = () => {
+        if (taskTag.value === "") {
+          alert("please add task");
+          return;
+        }
+
+        if (perentId) {
+          //   const maindiv = container.childNodes[0].innerText;
+          const div = document.getElementById(perentId);
+          div.childNodes[0].innerText = taskTag.value;
+          perentId = null;
+          taskTag.value = "";
+          return;
+        }
+        const maindiv = document.createElement("div");
+        const div = document.createElement("div");
+        const updatebtn = document.createElement("button");
+        const deletebtn = document.createElement("button");
+
+        taskid++;
+        maindiv.id = `btn${taskid}`;
+        maindiv.classList.add("maindiv");
+
+        deletebtn.addEventListener("click", (event) => {
+          deleteEvent(event);
+        });
+
+        updatebtn.addEventListener("click", (event) => {
+          updateEvent(event);
+        });
+
+        div.innerHTML = taskTag.value;
+        updatebtn.innerHTML = "update";
+        deletebtn.innerHTML = "delete";
+        console.log(maindiv);
+
+        maindiv.append(div);
+        maindiv.append(updatebtn);
+        maindiv.append(deletebtn);
+        container.appendChild(maindiv);
+
+        taskTag.value = "";
+      };
+
+      const deleteEvent = (event) => {
+        const maindivId = event.target.parentNode.id;
+        const removeId = document.getElementById(maindivId);
+        container.removeChild(removeId);
+      };
+
+      const updateEvent = (event) => {
+        perentId = event.target.parentNode.id;
+        taskTag.value = event.target.parentNode.childNodes[0].innerText;
+        // console.log(event);
+        // console.log(parentnodeId, childnodeId);
+      };
+
+      const search = () => {
+        searchId.innerHTML = "";
+        for (let i = 0; i < container.childNodes.length; i++) {
+          const peradiv = container.childNodes[i];
+
+          //   console.log(peradiv);
+          const childDiv = peradiv.childNodes[0].innerText;
+          //   console.log(childDiv);
+
+          if (childDiv.includes(taskTag.value)) {
+            // console.log("chaild...." + childDiv);
+            const clone = peradiv.cloneNode(true);
+            searchId.appendChild(clone);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

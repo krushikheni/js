@@ -1,0 +1,119 @@
+<!-- ----------------- accordian ---------------------  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .desc {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label>to click show multiple peragraph:</label>
+      <input type="checkbox" name="checkbox" id="multishow" />
+    </div>
+
+    <div>
+      <p>
+        First Accoridian:<button type="button" onclick="hideshow(1)">
+          hide/show
+        </button>
+      </p>
+      <span class="desc" id="firstpera"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus
+        maxime, at vero perspiciatis quod eum eligendi dignissimos odio officia
+        nulla nobis iusto delectus totam velit quisquam iste rerum optio!Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus maxime,
+        at vero perspiciatis quod eum eligendi dignissimos odio officia nulla
+        nobis iusto delectus totam velit quisquam iste rerum optio!</span
+      >
+    </div>
+
+    <div>
+      <p>
+        second Accoridian:<button type="button" onclick="hideshow(2)">
+          hide/show
+        </button>
+      </p>
+      <span class="desc" id="secpera"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus
+        maxime, at vero perspiciatis quod eum eligendi dignissimos odio officia
+        nulla nobis iusto delectus totam velit quisquam iste rerum optio!Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus maxime,
+        at vero perspiciatis quod eum eligendi dignissimos odio officia nulla
+        nobis iusto delectus totam velit quisquam iste rerum optio!</span
+      >
+    </div>
+
+    <div>
+      <p>
+        Third Accoridian:<button type="button" onclick="hideshow(3)">
+          hide/show
+        </button>
+      </p>
+      <span class="desc" id="thirdpera"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus
+        maxime, at vero perspiciatis quod eum eligendi dignissimos odio officia
+        nulla nobis iusto delectus totam velit quisquam iste rerum optio!Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Id, ducimus maxime,
+        at vero perspiciatis quod eum eligendi dignissimos odio officia nulla
+        nobis iusto delectus totam velit quisquam iste rerum optio!</span
+      >
+    </div>
+
+    <script>
+      const firstpera = document.getElementById("firstpera");
+      const secpera = document.getElementById("secpera");
+      const thirdpera = document.getElementById("thirdpera");
+      const multishow = document.getElementById("multishow");
+
+      //   const hideshow = (value) => {
+      //     console.log(value);
+      //     if (value == 1) {
+      //       condition(firstpera);
+      //     } else if (value == 2) {
+      //       condition(secpera);
+      //     } else {
+      //       condition(thirdpera);
+      //     }
+      //   };
+
+      //   const condition = (description) => {
+      //     if (description.style.display == "block") {
+      //       description.style.display = "none";
+      //     } else {
+      //       description.style.display = "block";
+      //     }
+      //   };
+
+      const object = {
+        1: firstpera,
+        2: secpera,
+        3: thirdpera,
+      };
+
+      let last = null;
+
+      const hideshow = (val) => {
+        toggle(object[val]);
+        last = val;
+      };
+
+      const toggle = (des) => {
+        if (des.style.display == "block") {
+          des.style.display = "none";
+        } else {
+          if (object[last] && multishow.checked) {
+            object[last].style.display = "none";
+          }
+          des.style.display = "block";
+        }
+      };
+    </script>
+  </body>
+</html>
